@@ -50,7 +50,7 @@ void FramelessWindow::mousePressEvent( QMouseEvent *event )
     QQuickWindow::mousePressEvent( event );
 }
 
-
+#if defined(Q_OS_WIN)
 bool FramelessWindow::nativeEvent(const QByteArray &eventType, void *message, long *result)
 {
     Q_UNUSED(eventType);
@@ -119,5 +119,7 @@ bool FramelessWindow::nativeEvent(const QByteArray &eventType, void *message, lo
         }
         return true;
     }
+
     return false;
 }
+#endif

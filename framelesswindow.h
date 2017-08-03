@@ -22,7 +22,9 @@ private:
     void mousePressEvent( QMouseEvent *event );
     void mouseReleaseEvent( QMouseEvent *event );
     void mouseMoveEvent( QMouseEvent *event );
+#if defined(Q_OS_WIN)
     bool nativeEvent(const QByteArray &eventType, void *message, long *result);
+#endif
 private:
     QQuickItem *m_pMoveWindowArea;
 };
